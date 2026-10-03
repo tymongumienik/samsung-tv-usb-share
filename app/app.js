@@ -1,6 +1,7 @@
 (function () {
   'use strict';
-  var base = 'http://127.0.0.1:8080';
+  var port = window.USB_SHARE_PORT || 8080;
+  var base = 'http://127.0.0.1:' + port;
   var status = document.getElementById('status');
   var address = document.getElementById('address');
   var diagnostics = document.getElementById('diagnostics');
@@ -13,8 +14,8 @@
     x.timeout = 40000;
     if (type) x.setRequestHeader('Content-Type', type);
     x.onload = function () { done(x.status >= 200 && x.status < 300 ? null : new Error('HTTP ' + x.status), x.responseText); };
-    x.onerror = function () { done(new Error('Połączenie z portem 8080 nie działa')); };
-    x.ontimeout = function () { done(new Error('Timeout portu 8080')); };
+    x.onerror = function () { done(new Error('Połączenie z portem ' + port + ' nie działa')); };
+    x.ontimeout = function () { done(new Error('Timeout portu ' + port)); };
     try { x.send(body || null); } catch (e) { done(e); }
   }
   function jsonPost(route, data, done) { xhr('POST', route, JSON.stringify(data), 'application/json', done || function () {}); }
@@ -52,7 +53,10 @@
         function finish() { pending--; if (!pending) send(out); }
       }, function (e) { out.errors.push('listStorages: ' + errorString(e)); send(out); });
     } catch (e) { out.errors.push('listStorages: ' + errorString(e)); send(out); }
-    function send(data) { jsonPost('/bridge/report', data); diagnostics.textContent = JSON.stringify(data, null, 2); }
+    function send(data) {
+      jsonPost('/bridge/report', data, function (e) { if (e) setTimeout(report, 2000); });
+      diagnostics.textContent = JSON.stringify(data, null, 2);
+    }
   }
   function execute(cmd) {
     var p = cmd.payload || {};

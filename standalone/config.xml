@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:tizen="http://tizen.org/ns/widgets"
+        id="https://github.com/tymongumienik/tizenbrew-usb-share"
+        version="0.2.0"
+        viewmodes="maximized">
+  <access origin="*" subdomains="true"/>
+  <tizen:application id="u5bShare01.USBShare" package="u5bShare01" required_version="5.0"/>
+  <content src="index.html"/>
+  <feature name="http://tizen.org/feature/screen.size.all"/>
+  <tizen:feature name="http://tizen.org/feature/web.service"/>
+  <icon src="icon.png"/>
+  <name>USB Share</name>
+  <tizen:privilege name="http://tizen.org/privilege/internet"/>
+  <tizen:privilege name="http://developer.samsung.com/privilege/network.public"/>
+  <tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
+  <tizen:privilege name="http://tizen.org/privilege/externalstorage"/>
+  <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+  <tizen:profile name="tv-samsung"/>
+  <tizen:service id="u5bShare01.USBShareService" auto-restart="false" on-boot="false">
+    <tizen:content src="service/index.js"/>
+    <tizen:name>USB Share Service</tizen:name>
+    <tizen:description>Local HTTP server for USB Share</tizen:description>
+  </tizen:service>
+  <tizen:setting screen-orientation="landscape" background-support="disable"/>
+</widget>

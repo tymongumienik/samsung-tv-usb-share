@@ -7,10 +7,10 @@
   var os = require('os');
   var url = require('url');
   var Buffer = require('buffer').Buffer;
-  var PORT = 8080;
+  var PORT = Number(process.env.USB_SHARE_PORT) || 8080;
   var MAX_JSON = 2 * 1024 * 1024;
   var CHUNK = 64 * 1024;
-  var candidates = ['/opt/usr/storage', '/opt/storage', '/media', '/mnt', '/run/media', '/opt/usr/media'];
+  var candidates = ['/opt/usr/storage', '/opt/storage', '/opt/media', '/media', '/mnt', '/run/media', '/opt/usr/media'];
   var state = { server: { port: PORT, listening: false, error: null, ips: [], interfaces: {} }, node: {}, tizenService: {}, tizenWeb: null, roots: [] };
   var jobs = {};
   var queue = [];
