@@ -67,7 +67,8 @@
     report.mounts.filter(usbMount).forEach(function (m, i) {
       try {
         var real = fs.realpathSync(m.point);
-        if (fs.statSync(real).isDirectory() && fs.readdirSync(real).length >= 0) {
+        if (fs.statSync(real).isDirectory()) {
+          fs.accessSync(real, 5); // POSIX R_OK | X_OK, without reading a huge USB directory.
           state.roots.push({ id: 'node' + i, label: path.basename(m.point) || m.point, mode: 'node', root: real });
         }
       } catch (e) { m.accessError = err(e); }
