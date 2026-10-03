@@ -1,0 +1,11 @@
+{
+  "name": "tizenbrew-usb-share",
+  "version": "0.1.0",
+  "private": true,
+  "description": "USB Share Diagnostic for TizenBrew on Samsung TVs",
+  "packageType": "app",
+  "appName": "USB Share Diagnostic",
+  "appPath": "app/index.html",
+  "serviceFile": "service.js",
+  "keys": []
+}

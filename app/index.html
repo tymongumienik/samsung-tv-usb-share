@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USB Share Diagnostic</title>
+  <style>
+    body{font:24px Arial,sans-serif;background:#101827;color:#f5f7fb;margin:0;padding:40px}
+    h1{font-size:42px;margin:0 0 15px} a{color:#78c7ff} button{font-size:23px;padding:12px 22px;margin:10px 0}
+    pre{font:18px monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#1c2a3f;padding:20px;border-radius:8px}
+    .ok{color:#84e1a3}.bad{color:#ffadad}
+  </style>
+</head>
+<body>
+  <h1>USB Share Diagnostic v0.1</h1>
+  <div id="status">Uruchamianie…</div>
+  <p id="address"></p>
+  <button id="refresh">Skanuj ponownie</button>
+  <pre id="diagnostics">Oczekiwanie na diagnostykę…</pre>
+  <script src="app.js"></script>
+</body>
+</html>
