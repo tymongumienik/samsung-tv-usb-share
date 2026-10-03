@@ -8,12 +8,12 @@ import zlib
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "dist" / "USBShare-Tizen5-unsigned.wgt"
 FILES = {
-    "config.xml": ROOT / "standalone" / "config.xml",
-    "index.html": ROOT / "standalone" / "index.html",
-    "launcher.js": ROOT / "standalone" / "launcher.js",
+    "config.xml": ROOT / "config.xml",
+    "index.html": ROOT / "app" / "index.html",
+    "launcher.js": ROOT / "app" / "launcher.js",
     "app/app.js": ROOT / "app" / "app.js",
-    "service/index.js": ROOT / "standalone" / "service.js",
-    "service/server.js": ROOT / "service.js",
+    "service/index.js": ROOT / "service" / "index.js",
+    "service/server.js": ROOT / "service" / "server.js",
 }
 
 
