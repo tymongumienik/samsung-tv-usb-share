@@ -1,13 +1,13 @@
 (function () {
   'use strict';
-  // TizenBrew executes serviceFile as one script in a VM, not as an npm package.
+  // The WGT includes this service as a self-contained script.
   var http = require('http');
   var fs = require('fs');
   var path = require('path');
   var os = require('os');
   var url = require('url');
   var Buffer = require('buffer').Buffer;
-  var PORT = Number(process.env.USB_SHARE_PORT) || 8080;
+  var PORT = Number(process.env.USB_SHARE_PORT) || 8082;
   var MAX_JSON = 2 * 1024 * 1024;
   var CHUNK = 64 * 1024;
   var candidates = ['/opt/usr/storage', '/opt/storage', '/opt/media', '/media', '/mnt', '/run/media', '/opt/usr/media'];
@@ -320,7 +320,7 @@
     if (parsed.pathname === '/') {
       var html = '<h2>Dostępne pamięci</h2><ul>';
       state.roots.forEach(function (r) { html += '<li><a href="/browse?s=' + encodeURIComponent(r.id) + '&p=">' + escapeHtml(r.label) + '</a> <small>(' + escapeHtml(r.mode) + ')</small></li>'; });
-      html += '</ul>' + (state.roots.length ? '' : '<p>Nie wykryto USB. Otwórz moduł na TV i sprawdź <a href="/debug">/debug</a>.</p>');
+      html += '</ul>' + (state.roots.length ? '' : '<p>Nie wykryto USB. Otwórz aplikację na TV i sprawdź <a href="/debug">/debug</a>.</p>');
       res.writeHead(200, { 'Content-Type':'text/html; charset=utf-8', 'Cache-Control':'no-store' });
       return res.end(layout('USB Share', html));
     }
@@ -335,6 +335,6 @@
     state.server.listening = true;
     console.log('USB Share running on http://0.0.0.0:' + PORT);
   });
-  // Return exports for local tests; TizenBrew ignores them.
+  // Expose the server state and helpers for local verification.
   module.exports = { server: server, state: state, scanNode: scanNode, range: range, validRel: validRel };
 })();

@@ -6,7 +6,7 @@ USB Share udostępnia w sieci lokalnej pliki z pamięci USB podłączonej do tel
 
 Potrzebujesz telewizora z włączonym trybem deweloperskim, telefonu z Androidem oraz aplikacji Apps2Samsung. Telefon i TV muszą być w tej samej sieci lokalnej.
 
-1. Pobierz na telefon [USBShare-Tizen5-unsigned.wgt — wydanie v0.2.0](https://github.com/tymongumienik/samsung-tv-usb-share/releases/download/v0.2.0/USBShare-Tizen5-unsigned.wgt).
+1. Pobierz na telefon [USBShare-Tizen5-unsigned.wgt — wydanie v0.2.1](https://github.com/tymongumienik/samsung-tv-usb-share/releases/download/v0.2.1/USBShare-Tizen5-unsigned.wgt).
 2. W Apps2Samsung połącz się z telewizorem. Jeśli aplikacja o to poprosi, wpisz **IP telefonu** w ustawieniach trybu deweloperskiego telewizora i uruchom TV ponownie.
 3. W Apps2Samsung wybierz **Custom WGT/TPK** lub **Custom WGT File**, wskaż pobrany `.wgt` i naciśnij **Install**. Apps2Samsung podpisuje pakiet certyfikatem właściwym dla telewizora.
 4. Uruchom **USB Share** z menu Apps na TV. Otwórz w przeglądarce telefonu adres pokazany na ekranie, zwykle `http://IP_TV:8082/`.

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:tizen="http://tizen.org/ns/widgets"
-        id="https://github.com/tymongumienik/tizenbrew-usb-share"
-        version="0.2.0"
+        id="https://github.com/tymongumienik/samsung-tv-usb-share"
+        version="0.2.1"
         viewmodes="maximized">
   <access origin="*" subdomains="true"/>
   <tizen:application id="u5bShare01.USBShare" package="u5bShare01" required_version="5.0"/>

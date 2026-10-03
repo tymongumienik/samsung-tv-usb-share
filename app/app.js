@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var port = window.USB_SHARE_PORT || 8080;
+  var port = window.USB_SHARE_PORT || 8082;
   var base = 'http://127.0.0.1:' + port;
   var status = document.getElementById('status');
   var address = document.getElementById('address');
