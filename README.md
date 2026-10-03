@@ -29,25 +29,21 @@ W aktualnym `config.xml` TizenBrew są uprawnienia `internet` i `unlimitedstorag
 
 ## Instalacja z Androida
 
-Repozytorium musi być publiczne, z plikami w katalogu głównym. Po opublikowaniu:
+Moduł jest opublikowany w publicznym repozytorium `tymongumienik/tizenbrew-usb-share`. Na Androidzie nie trzeba instalować niczego poza przeglądarką, jeśli TizenBrew już działa na TV.
 
 1. Na TV otwórz **TizenBrew → Module Manager → Add GitHub Repository**.
-2. Wpisz **`UŻYTKOWNIK/REPO`** (bez `gh/`, bez URL i bez `.git`). TizenBrew dopisze `gh/` sam.
+2. Wpisz dokładnie **`tymongumienik/tizenbrew-usb-share`** (bez `gh/`, bez URL i bez `.git`). TizenBrew dopisze `gh/` sam.
 3. Wróć na ekran modułów, odśwież listę lub ponownie uruchom TizenBrew, a potem uruchom **USB Share Diagnostic**.
 4. Na ekranie TV odczytaj adres `http://IP_TV:8080`. Otwórz go w przeglądarce Androida. Telefon i TV muszą być w tej samej sieci bez izolacji klientów Wi-Fi.
 
-Jeśli tworzysz repozytorium tylko na Androidzie, w Termux można użyć `pkg install git gh`, wkleić pliki z tej publikacji do katalogu `tizenbrew-usb-share`, a następnie:
+Opcjonalnie sprawdź publikację w Termux na Androidzie:
 
 ```sh
-cd tizenbrew-usb-share
-git init
-git add package.json service.js app/index.html app/app.js README.md
-git commit -m 'USB Share Diagnostic v0.1'
-gh auth login
-gh repo create tizenbrew-usb-share --public --source . --remote origin --push
+pkg install curl
+curl -fL https://cdn.jsdelivr.net/gh/tymongumienik/tizenbrew-usb-share/package.json
 ```
 
-Polecenie `gh auth login` wymaga zalogowania do GitHub na telefonie. Po utworzeniu repo wpisz na TV nazwę wyświetloną przez `gh repo view --json nameWithOwner --jq .nameWithOwner`.
+Pobrany `package.json` powinien zawierać `"packageType": "app"` i `"serviceFile": "service.js"`.
 
 ## Użycie i diagnostyka
 
